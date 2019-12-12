@@ -40,7 +40,7 @@ header h1::after {
   content: ' ';
   background: var(--color-green);
   width: 100px;
-  height: 2px;
+  height: 1px;
   display: block;
 }
 
@@ -132,19 +132,22 @@ main {
 /* FILTERS –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .interaction-title {
+  text-align: center;
   font-size: 1.4rem;
-  margin-bottom: 8px;
-  margin-top: 14px;
+  margin-bottom: 10px;
 }
+
 .filters {
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .filter {
   cursor: pointer;
   font-weight: bold;
   text-transform: uppercase;
-  background: var(--color-darkest);
+  color: var(--color-darkest);
+  background: var(--color-green);
   display: inline-block;
   font-size: 1rem;
   border-radius: 2px;
@@ -153,4 +156,19 @@ main {
 
 .filter+.filter {
   margin-left: 20px;
+}
+
+.searchbar {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  display: block;
+  background: none;
+  border: 1px solid var(--color-green);
+  border-bottom-width: 2px;
+  color: var(--color-green);
+  border-radius: 4px;
+  padding: 5px 10px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 24px;
 }
