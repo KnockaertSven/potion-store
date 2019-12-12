@@ -36,26 +36,24 @@
       listItem.className = "potion";
       listItem.setAttribute("data-id", potion.id);
 
+      let image = document.createElement("img");
+      image.setAttribute("src", `./images/${potion.id}.png`);
+      image.setAttribute("alt", potion.name.toString());
+      image.setAttribute("class", "potion-image");
+      listItem.append(image);
+
       possibleKeys.forEach(key => {
         let span = document.createElement("span");
         span.innerHTML = "none";
         if(potion.hasOwnProperty(key)){
           span.innerHTML = potion[key];
+          span.className = "potion-" + key.toString();
         }
         listItem.append(span);
       });
 
       document.querySelector(".potions").appendChild(listItem);
     });
-
-    // <span class="potion-image">Image</span>
-    // <span class="potion-name">Name</span>
-    // <span class="potion-level">Level</span>
-    // <span class="potion-tags">Tags</span>
-    // <span class="potion-health">Health</span>
-    // <span class="potion-mana">Mana</span>
-    // <span class="potion-time">Cooldown time</span>
-    // <span class="potion-price">Price</span
   }
 
   init();

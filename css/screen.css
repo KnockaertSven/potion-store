@@ -1,5 +1,6 @@
 :root {
   --color-dark: #230F58;
+  --color-darker: rgba(45, 25, 98);
   --color-blue: #0B37F6;
   --color-blue-light: #5E77EF;
   --color-green: #1FBE8B;
@@ -37,7 +38,6 @@ header h1::after {
   display: block;
 }
 
-
 main {
   margin: 0 auto;
   width: 80%;
@@ -52,17 +52,47 @@ main {
 }
 
 .potion, .potion-head {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  height: 60px;
   flex-wrap: wrap;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.potion {
-  cursor: pointer;
-  padding: 20px 0;
+.potion-image {
+  width: 40px;
+  height: 40px;
 }
 
-.potion span {
-  display: block;
+.potion-tags {
+  text-overflow: ellipsis;
+}
+
+.potion {
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+.potion:hover {
+  background: var(--color-darker);
+}
+
+.potion-head {
+  font-weight: bold;
+}
+
+.potion span, .potion-head span {
+  width: 0;
+  padding-right: 10px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  vertical-align: top;
+  text-align: right;
+}
+
+.potion:last-child {
+  margin-bottom: 100px;
 }
