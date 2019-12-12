@@ -3,6 +3,7 @@
   async function init() {
     let potionData = await parseJSON("./json/db.json").then((data) => data);
     let potions = potionData.potions;
+    potions = sortPotionsAlphabetically(potions);
     displayPotions(potions);
   };
 
@@ -18,6 +19,24 @@
       xhr.send();
     });
   };
+
+  function sortPotionsAlphabetically(potions) {
+    potions = potions.sort(function (a, b) {
+      if (a.name < b.name) { return -1; }
+      if (a.name > b.name) { return 1; }
+      return 0;
+    });
+    return potions;
+  }
+
+  function sortPotionsByPrice(potions) {
+    potions = potions.sort(function (a, b) {
+      if (a.price < b.price) { return -1; }
+      if (a.price > b.price) { return 1; }
+      return 0;
+    });
+    return potions;
+  }
 
   function displayPotions(potions) {
     let possibleKeys = [
