@@ -5,6 +5,7 @@
     let potions = potionData.potions;
     potions = sortPotionsAlphabetically(potions);
     displayPotions(potions);
+    manageFilters(potions);
   };
 
   function parseJSON(url) {
@@ -38,6 +39,36 @@
     return potions;
   }
 
+  function sortPotionsByLevel(potions) {
+    potions = potions.sort(function (a, b) {
+      if (a.required_level < b.required_level) { return -1; }
+      if (a.required_level > b.required_level) { return 1; }
+      return 0;
+    });
+    return potions;
+  }
+
+  function manageFilters(potions) {
+    document.getElementById("filter-price").addEventListener("click", (event) => {
+      potions = sortPotionsByPrice(potions);
+      clearPotions();
+      displayPotions(potions);
+    });
+    document.getElementById("filter-level").addEventListener("click", (event) => {
+      potions = sortPotionsByLevel(potions);
+      clearPotions();
+      displayPotions(potions);
+    });
+  }
+
+  function clearPotions() {
+    let potions = document.querySelector(".potions");
+    while (potions.lastChild) {
+      if (potions.lastChild.className == "potion-head") break;
+      potions.removeChild(potions.lastChild);
+    }
+  }
+
   function displayPotions(potions) {
     let possibleKeys = [
       "name",
@@ -48,28 +79,30 @@
       "price",
     ];
 
-    potions.forEach(potion => {
-      let listItem = document.createElement("li");
-      listItem.className = "potion";
-      listItem.setAttribute("data-id", potion.id);
+    potions.forEach((potion, index) => {
+      setTimeout(() => {
+        let listItem = document.createElement("li");
+        listItem.className = "potion";
+        listItem.setAttribute("data-id", potion.id);
 
-      let image = document.createElement("img");
-      image.setAttribute("src", `./images/${potion.id}.png`);
-      image.setAttribute("alt", potion.name.toString());
-      image.className = "potion-image";
-      listItem.append(image);
+        let image = document.createElement("img");
+        image.setAttribute("src", `./images/${potion.id}.png`);
+        image.setAttribute("alt", potion.name.toString());
+        image.className = "potion-image";
+        listItem.append(image);
 
-      possibleKeys.forEach(key => {
-        let span = document.createElement("span");
-        span.innerHTML = "None";
-        span.className = "potion-" + key.toString();
-        if (potion.hasOwnProperty(key)) {
-          span.innerHTML = potion[key];
-        }
-        listItem.append(span);
-      });
+        possibleKeys.forEach(key => {
+          let span = document.createElement("span");
+          span.innerHTML = "None";
+          span.className = "potion-" + key.toString();
+          if (potion.hasOwnProperty(key)) {
+            span.innerHTML = potion[key];
+          }
+          listItem.append(span);
+        });
 
-      document.querySelector(".potions").appendChild(listItem);
+        document.querySelector(".potions").appendChild(listItem);
+      }, index*20);
     });
   }
 
