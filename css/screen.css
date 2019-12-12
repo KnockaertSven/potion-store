@@ -158,7 +158,7 @@ main {
   margin-left: 20px;
 }
 
-.searchbar {
+#search-bar {
   font-size: 1.2rem;
   line-height: 1.8rem;
   display: block;

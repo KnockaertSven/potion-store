@@ -4,7 +4,7 @@
     let potionData = await parseJSON("./json/db.json").then((data) => data);
     let potions = potionData.potions;
     potions = sortPotionsAlphabetically(potions);
-    displayPotions(potions);
+    displayPotions(potions, 30);
     manageFilters(potions);
   };
 
@@ -59,6 +59,25 @@
       clearPotions();
       displayPotions(potions);
     });
+    document.getElementById("search-bar").addEventListener("keyup", (event) => {
+      let userInput = event.target.value;
+      if (userInput === "") {
+        clearPotions();
+        displayPotions(potions);
+      } else {
+        let newPotions = filterPotionsByName(potions, userInput);
+        clearPotions();
+        displayPotions(newPotions);
+      }
+    });
+  }
+
+  function filterPotionsByName(potions, name) {
+    potions = potions.filter(function (potion) {
+      if (potion.name.toLowerCase().includes(name)) return true;
+      return false;
+    });
+    return potions;
   }
 
   function clearPotions() {
@@ -69,7 +88,7 @@
     }
   }
 
-  function displayPotions(potions) {
+  function displayPotions(potions, delay = 0) {
     let possibleKeys = [
       "name",
       "required_level",
@@ -102,7 +121,7 @@
         });
 
         document.querySelector(".potions").appendChild(listItem);
-      }, index*20);
+      }, index * delay);
     });
   }
 
