@@ -1,0 +1,11 @@
+{
+  "name": "js-test-sven-knockaert",
+  "version": "1.0.0",
+  "description": "JS Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sven Knockaert <sven.knockaert@student.howest.be>",
+  "license": "ISC"
+}

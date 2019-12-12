@@ -1,0 +1,277 @@
+{
+	"potions": [
+		{
+			"id": 1,
+			"name": "Small Healing Potion",
+			"required_level": 0,
+			"tags": ["potions", "healing_potions"],
+			"restore_hp" : 25,
+			"cooldown_time": 15,
+			"price": 10
+		},
+		{
+			"id": 2,
+			"name": "Small Rejuvenation Potion",
+			"required_level": 0,
+			"tags": ["potions", "rejuvenation_potions"],
+			"restore_hp": 20,
+			"restore_mp": 30,
+			"cooldown_time": 60,
+			"price": 50
+		},
+		{
+			"id": 3,
+			"name": "Small Mana Potion",
+			"required_level": 0,
+			"tags": ["potions", "mana_potions"],
+			"restore_mp": 25,
+			"cooldown_time": 15,
+			"price": 10
+		},
+		{
+			"id": 4,
+			"name": "Snack Tangkua",
+			"required_level": 5,
+			"tags": ["potions", "rejuvenation_potions"],
+			"restore_hp": 300,
+			"restore_mp": 300,
+			"cooldown_time": 15,
+			"description": "It is said that the Kitchen God was once a constellation of Heaven. For some fault he committed, he was demoted to governing kitchens in man's world. Usually the God of Kitchen would sit in the middle of a kitchen watching how people live, recording both good and bad behavior. On the 23th day of the second month of the lunar calendar, the God of Kitchen will return to Heaven to make his report. Then, he goes back to his duty on the night of the 30th day of the second month of the lunar calendar. The good and bad are then either rewards or punished. So on every 23th day of the second month of the lunar calendar people will offer Tangkua, which is a sweet and sticky snack, to the God of Kichen, believing that by doing so the God of Kitchen will be unable to report ill-doings because his lips will be stuck together due the yummy candy.",
+			"price": 150
+		},
+		{
+			"id": 5,
+			"name": "Snack Yuanhsiao",
+			"required_level": 5,
+			"tags": ["potions", "rejuvenation_potions"],
+			"restore_hp": 300,
+			"restore_mp": 300,
+			"cooldown_time": 15,
+			"description": "A traditional Chinese snack. It is made of glutinous rice flour, usually with sweet fillings inside. As a convention, every family will have Yuanhsiao together on the 15th day of the second month in lunar calendar.",
+			"price": 150
+		},
+		{
+			"id": 6,
+			"name" : "Mouthwatering Treat",
+			"required_level": 5,
+			"tags": ["potions", "rejuvenation_potions"],
+			"restore_hp": 500,
+			"restore_mp": 500,
+			"cooldown_time": 60,
+			"price": 300
+		},
+		{
+			"id": 7,
+			"name" : "Mana Potion",
+			"required_level": 5,
+			"tags": ["potions", "mana_potions"],
+			"restore_mp": 40,
+			"cooldown_time": 15,
+			"price": 20
+		},
+		{
+			"id": 8,
+			"name" : "Rejuvenation Potion",
+			"required_level": 5,
+			"tags": ["potions", "rejuvenation_potions"],
+			"restore_hp": 80,
+			"restore_mp": 80,
+			"cooldown_time": 60,
+			"price": 120
+		},
+		{
+			"id": 9,
+			"name" : "Healing Potion",
+			"required_level": 5,
+			"tags": ["potions", "healing_potions"],
+			"restore_hp" : 40,
+			"cooldown_time": 15,
+			"price": 20
+		},
+		{
+			"id": 10,
+			"name" : "Antidote Potion",
+			"required_level": 0,
+			"tags": ["potions", "antidote"],
+			"cooldown_time": 15,
+			"price": 150
+		},
+		{
+			"id": 11,
+			"name" : "Small Sugar Yuanxiao",
+			"required_level": 10,
+			"tags": ["potions", "mana_potions", "gift_release"],
+			"restore_mp": 2000,
+			"cooldown_time": 10,
+			"price": 1000
+		},
+		{
+			"id": 12,
+			"name" : "Mini Feastworthy Crab Dumplings",
+			"required_level": 10,
+			"tags": ["potions", "healing_potions", "vip_prestige"],
+			"restore_hp": 2000,
+			"cooldown_time": 10,
+			"price": 1000
+		},
+		{
+			"id": 13,
+			"name" : "Glutinous Rice",
+			"required_level": 10,
+			"tags": ["potions", "healing_potions", "gift_release"],
+			"restore_hp": 200,
+			"cooldown_time": 15,
+			"price": 150
+		},
+		{
+			"id": 14,
+			"name" : "Vegetable Jiaozi",
+			"required_level": 10,
+			"tags": ["potions", "healing_potions", "gift_release"],
+			"restore_hp": 2000,
+			"cooldown_time": 15,
+			"price": 1000
+		},
+		{
+			"id": 15,
+			"name" : "Yummy Chiaozu",
+			"required_level": 10,
+			"tags": ["potions", "healing_potions", "gift_release"],
+			"restore_hp": 2000,
+			"cooldown_time": 15,
+			"price": 1000
+		},
+		{
+			"id": 16,
+			"name" : "Strange Rice Cake Leaf",
+			"required_level": 10,
+			"tags": ["potions", "healing_potions", "gift_release"],
+			"restore_hp": 2000,
+			"cooldown_time": 15,
+			"price": 1000
+		},
+		{
+			"id": 17,
+			"name" : "Sweet Been Paste",
+			"required_level": 10,
+			"tags": ["potions", "mana_potions", "gift_release"],
+			"restore_mp": 100,
+			"cooldown_time": 15,
+			"price": 150
+		},
+		{
+			"id": 18,
+			"name" : "Chiflow Dew",
+			"required_level": 10,
+			"tags": ["potions", "mana_potions", "vip_prestige"],
+			"restore_mp": 450,
+			"cooldown_time": 15,
+			"price": 600
+		},
+		{
+			"id": 19,
+			"name" : "Rice Cake Leaf",
+			"required_level": 10,
+			"tags": ["potions", "mana_potions", "gift_release"],
+			"restore_mp": 200,
+			"cooldown_time": 15,
+			"price": 250
+		},
+		{
+			"id": 20,
+			"name" : "Beef",
+			"required_level": 15,
+			"tags": ["potions", "healing_potions", "gift_release"],
+			"restore_hp": 100,
+			"cooldown_time": 15,
+			"price": 100
+		},
+		{
+			"id": 21,
+			"name" : "Mini Tonic Rice Balls",
+			"required_level": 15,
+			"tags": ["potions", "mana_potions", "vip_prestige"],
+			"restore_mp": 2500,
+			"cooldown_time": 10,
+			"price": 1500
+		},
+		{
+			"id": 22,
+			"name" : "Redbloom Dew",
+			"required_level": 15,
+			"tags": ["potions", "healing_potions", "vip_prestige"],
+			"restore_hp": 450,
+			"cooldown_time": 10,
+			"price": 500
+		},
+		{
+			"id": 23,
+			"name" : "Hsiaoko's Mantou",
+			"required_level": 15,
+			"tags": ["potions", "rejuvenation_potions", "gift_release"],
+			"restore_hp": 500,
+			"restore_mp": 500,
+			"cooldown_time": 60,
+			"price": 1000
+		},
+		{
+			"id": 24,
+			"name" : "Perfect Chiaozu",
+			"required_level": 15,
+			"tags": ["potions", "rejuvenation_potions", "gift_release"],
+			"restore_hp": 1000,
+			"restore_mp": 1000,
+			"cooldown_time": 60,
+			"price": 2000
+		},
+		{
+			"id": 25,
+			"name" : "Mantou",
+			"required_level": 15,
+			"tags": ["potions", "rejuvenation_potions", "gift_release"],
+			"restore_hp": 10,
+			"restore_mp": 10,
+			"cooldown_time": 60,
+			"price": 50
+		},
+		{
+			"id": 26,
+			"name" : "Beautiful Chang's Mantou",
+			"required_level": 15,
+			"tags": ["potions", "rejuvenation_potions", "gift_release"],
+			"restore_hp": 1500,
+			"restore_mp": 1500,
+			"cooldown_time": 60,
+			"price": 4000
+		},
+		{
+			"id": 27,
+			"name" : "Date",
+			"required_level": 15,
+			"tags": ["potions", "rejuvenation_potions", "gift_release"],
+			"restore_hp": 50,
+			"restore_mp": 50,
+			"cooldown_time": 60,
+			"price": 150
+		},
+		{
+			"id": 28,
+			"name" : "Chestnut Cake",
+			"required_level": 15,
+			"tags": ["potions", "rejuvenation_potions"],
+			"restore_hp": 1000,
+			"restore_mp": 1000,
+			"cooldown_time": 45,
+			"price": 2500
+		},
+		{
+			"id": 29,
+			"name" : "Delicious Chiaozu",
+			"required_level": 15,
+			"tags": ["potions", "mana_potions", "gift_release"],
+			"restore_mp": 2000,
+			"cooldown_time": 15,
+			"price": 1000
+		}
+	]
+}
