@@ -20,11 +20,9 @@
   };
 
   function displayPotions(potions) {
-
     let possibleKeys = [
       "name",
       "required_level",
-      "tags",
       "restore_hp",
       "restore_mp",
       "cooldown_time",
@@ -39,15 +37,15 @@
       let image = document.createElement("img");
       image.setAttribute("src", `./images/${potion.id}.png`);
       image.setAttribute("alt", potion.name.toString());
-      image.setAttribute("class", "potion-image");
+      image.className = "potion-image";
       listItem.append(image);
 
       possibleKeys.forEach(key => {
         let span = document.createElement("span");
-        span.innerHTML = "none";
-        if(potion.hasOwnProperty(key)){
+        span.innerHTML = "None";
+        span.className = "potion-" + key.toString();
+        if (potion.hasOwnProperty(key)) {
           span.innerHTML = potion[key];
-          span.className = "potion-" + key.toString();
         }
         listItem.append(span);
       });

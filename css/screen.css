@@ -1,5 +1,6 @@
 :root {
   --color-dark: #230F58;
+  --color-darkest: #111;
   --color-darker: rgba(45, 25, 98);
   --color-blue: #0B37F6;
   --color-blue-light: #5E77EF;
@@ -54,45 +55,64 @@ main {
 .potion, .potion-head {
   font-size: 1rem;
   line-height: 1.5rem;
-  height: 60px;
+  padding: 10px 0;
   flex-wrap: wrap;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.potion-image {
-  width: 40px;
-  height: 40px;
-}
-
-.potion-tags {
-  text-overflow: ellipsis;
+.potion-head {
+  padding-left: 60px;
+  width: calc(100% - 60px);
+  font-weight: bold;
 }
 
 .potion {
   cursor: pointer;
-  margin: 20px 0;
+  margin: 12px 0;
+  border-radius: 4px;
+  transition: 0.3s ease;
 }
 
 .potion:hover {
   background: var(--color-darker);
+  transition: 0.3s ease;
 }
 
-.potion-head {
-  font-weight: bold;
+.potion:last-child {
+  margin-bottom: 100px;
 }
 
-.potion span, .potion-head span {
+.potion>span, .potion-head>span {
   width: 0;
   padding-right: 10px;
-  flex-grow: 1;
-  flex-shrink: 1;
+  flex-grow: 0.8;
+  flex-shrink: 0.8;
   flex-basis: 0;
   vertical-align: top;
   text-align: right;
 }
 
-.potion:last-child {
-  margin-bottom: 100px;
+.potion-image {
+  margin-right: 20px;
+  height: 40px;
+  flex-basis: 40px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.potions .potion-name {
+  flex-grow: 2.5;
+  text-align: left;
+}
+
+.potion .potion-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.potion .potion-price:before {
+  content: '$ ';
+  font-size: 1rem;
 }
