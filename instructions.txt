@@ -1,0 +1,8 @@
+Hi Peter (or anybody else reading this!),
+
+I installed a simple web server with nodejs to serve this site.
+This is the install command:
+$ npm install http-server -g
+
+To run it, I change into this directory and run:
+$ http-server --cors
