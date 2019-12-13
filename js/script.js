@@ -5,7 +5,7 @@
     let potions = potionData.potions;
     potions = sortPotionsAlphabetically(potions);
     displayPotions(potions, 30);
-    manageFilters(potions);
+    manageUserInput(potions);
   };
 
   function parseJSON(url) {
@@ -20,6 +20,64 @@
       xhr.send();
     });
   };
+
+  function manageUserInput(potions) {
+    const tags = [
+      "potions",
+      "healing_potions",
+      "mana_potions",
+      "gift_release",
+      "vip_prestige",
+      "rejuvenation_potions",
+      "antidote",
+    ];
+
+    tags.forEach(tag => {
+      let tagEL = document.getElementById(`filter-${tag}`);
+      tagEL.addEventListener("click", (event) => {
+        const newPotions = sortPotionByTag(potions, tag);
+        clearPotions();
+        displayPotions(newPotions);
+      });
+    });
+
+    document.getElementById("filter-price").addEventListener("click", (event) => {
+      potions = sortPotionsByPrice(potions);
+      clearPotions();
+      displayPotions(potions);
+    });
+
+    document.getElementById("filter-required_level").addEventListener("click", (event) => {
+      potions = sortPotionsByLevel(potions);
+      clearPotions();
+      displayPotions(potions);
+    });
+
+    handleSearchBarInput(potions);
+
+    hideBackdropOnClick();
+  }
+
+  function handleSearchBarInput(potions){
+    document.getElementById("search-bar").addEventListener("keyup", (event) => {
+      let userInput = event.target.value;
+      if (userInput === "") {
+        clearPotions();
+        displayPotions(potions);
+      } else {
+        let newPotions = filterPotionsByName(potions, userInput);
+        clearPotions();
+        displayPotions(newPotions);
+      }
+    });
+  }
+
+  function hideBackdropOnClick() {
+    document.getElementById("backdrop").addEventListener("click", event => {
+      event.target.style.display = "none";
+      document.getElementById("popup").style.display = "none";
+    });
+  }
 
   function sortPotionsAlphabetically(potions) {
     potions = potions.sort(function (a, b) {
@@ -59,56 +117,6 @@
     }
 
     return potions;
-  }
-
-  function manageFilters(potions) {
-    const tags = [
-      "potions",
-      "healing_potions",
-      "mana_potions",
-      "gift_release",
-      "vip_prestige",
-      "rejuvenation_potions",
-      "antidote",
-    ];
-
-    tags.forEach(tag => {
-      let tagEL = document.getElementById(`filter-${tag}`);
-      tagEL.addEventListener("click", (event) => {
-        const newPotions = sortPotionByTag(potions, tag);
-        clearPotions();
-        displayPotions(newPotions);
-      });
-    });
-
-    document.getElementById("filter-price").addEventListener("click", (event) => {
-      potions = sortPotionsByPrice(potions);
-      clearPotions();
-      displayPotions(potions);
-    });
-
-    document.getElementById("filter-required_level").addEventListener("click", (event) => {
-      potions = sortPotionsByLevel(potions);
-      clearPotions();
-      displayPotions(potions);
-    });
-
-    document.getElementById("search-bar").addEventListener("keyup", (event) => {
-      let userInput = event.target.value;
-      if (userInput === "") {
-        clearPotions();
-        displayPotions(potions);
-      } else {
-        let newPotions = filterPotionsByName(potions, userInput);
-        clearPotions();
-        displayPotions(newPotions);
-      }
-    });
-
-    document.getElementById("backdrop").addEventListener("click", event => {
-      event.target.style.display = "none";
-      document.getElementById("popup").style.display = "none";
-    });
   }
 
   function filterPotionsByName(potions, name) {
