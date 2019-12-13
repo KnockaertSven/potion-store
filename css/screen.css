@@ -182,6 +182,7 @@ main {
   position: fixed;
   width: 280px;
   padding: 20px;
+  padding-bottom: 40px;
   background: var(--color-dark);
   border-radius: 4px;
   z-index: 2;
@@ -189,6 +190,16 @@ main {
   top: 50%;
   transform: translate(-50%, -50%);
   animation: appear 0.3s ease-out;
+}
+
+#popup h2 {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  margin-bottom: 10px;
+}
+
+#popup p {
+  line-height: 1.3rem;
 }
 
 #backdrop {

@@ -54,7 +54,7 @@
       return false;
     });
 
-    if(potions.length > 1) {
+    if (potions.length > 1) {
       potions = sortPotionsAlphabetically(potions);
     }
 
@@ -158,7 +158,10 @@
         listItem.append(span);
       });
 
-      listItem.addEventListener("click", () => displayPotionDetails(potion));
+      listItem.addEventListener("click", () => {
+        clearPotionDetails();
+        displayPotionDetails(potion);
+      });
 
       setTimeout(() => {
         document.querySelector(".potions").appendChild(listItem);
@@ -166,16 +169,27 @@
     });
   }
 
+  function clearPotionDetails() {
+    let popup = document.getElementById("popup");
+    while (popup.lastChild) {
+      popup.removeChild(popup.lastChild);
+    }
+  }
+
   function displayPotionDetails(potion) {
     let popup = document.getElementById("popup");
 
-    for (var prop in potion) {
-      if (prop == "tags") continue;
+    let nameEl = document.createElement("h2");
+    nameEl.innerHTML = potion.name;
+    popup.appendChild(nameEl);
 
-      let text = document.createElement("p");
-      text.innerHTML = potion[prop].toString();
-      popup.appendChild(text);
+    let descriptionEl = document.createElement("p");
+    let description = "No description provided.";
+    if (potion.hasOwnProperty("description")) {
+      description = potion.description;
     }
+    descriptionEl.innerHTML = description;
+    popup.appendChild(descriptionEl);
 
     document.getElementById("backdrop").style.display = "block";
     popup.style.display = "block";
