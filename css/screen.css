@@ -132,14 +132,14 @@ main {
 /* FILTERS –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .interaction-title {
-  text-align: center;
+  text-align: left;
   font-size: 1.4rem;
   margin-bottom: 10px;
 }
 
 .filters {
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
 }
 
 .filter {
@@ -152,10 +152,12 @@ main {
   font-size: 1rem;
   border-radius: 2px;
   padding: 4px 8px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
-.filter+.filter {
-  margin-left: 20px;
+.filter:last-child {
+  margin-right: 0px;
 }
 
 #search-bar {
@@ -171,4 +173,52 @@ main {
   outline: none;
   width: 100%;
   margin-bottom: 24px;
+}
+
+/* POPUP –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#popup {
+  display: none;
+  position: fixed;
+  width: 280px;
+  padding: 20px;
+  background: var(--color-dark);
+  border-radius: 4px;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: appear 0.3s ease-out;
+}
+
+#backdrop {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  background: rgba(0,0,0,0.3);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes appear {
+  from {
+    top: 100%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

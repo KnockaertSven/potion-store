@@ -48,17 +48,51 @@
     return potions;
   }
 
+  function sortPotionByTag(potions, tag) {
+    potions = potions.filter(function (potion) {
+      if (potion.tags.includes(tag)) return true;
+      return false;
+    });
+
+    if(potions.length > 1) {
+      potions = sortPotionsAlphabetically(potions);
+    }
+
+    return potions;
+  }
+
   function manageFilters(potions) {
+    const tags = [
+      "potions",
+      "healing_potions",
+      "mana_potions",
+      "gift_release",
+      "vip_prestige",
+      "rejuvenation_potions",
+      "antidote",
+    ];
+
+    tags.forEach(tag => {
+      let tagEL = document.getElementById(`filter-${tag}`);
+      tagEL.addEventListener("click", (event) => {
+        const newPotions = sortPotionByTag(potions, tag);
+        clearPotions();
+        displayPotions(newPotions);
+      });
+    });
+
     document.getElementById("filter-price").addEventListener("click", (event) => {
       potions = sortPotionsByPrice(potions);
       clearPotions();
       displayPotions(potions);
     });
-    document.getElementById("filter-level").addEventListener("click", (event) => {
+
+    document.getElementById("filter-required_level").addEventListener("click", (event) => {
       potions = sortPotionsByLevel(potions);
       clearPotions();
       displayPotions(potions);
     });
+
     document.getElementById("search-bar").addEventListener("keyup", (event) => {
       let userInput = event.target.value;
       if (userInput === "") {
@@ -69,6 +103,11 @@
         clearPotions();
         displayPotions(newPotions);
       }
+    });
+
+    document.getElementById("backdrop").addEventListener("click", event => {
+      event.target.style.display = "none";
+      document.getElementById("popup").style.display = "none";
     });
   }
 
@@ -89,7 +128,7 @@
   }
 
   function displayPotions(potions, delay = 0) {
-    let possibleKeys = [
+    const possibleKeys = [
       "name",
       "required_level",
       "restore_hp",
@@ -99,31 +138,48 @@
     ];
 
     potions.forEach((potion, index) => {
+      let listItem = document.createElement("li");
+      listItem.className = "potion";
+      listItem.setAttribute("data-id", potion.id);
+
+      let image = document.createElement("img");
+      image.setAttribute("src", `./images/${potion.id}.png`);
+      image.setAttribute("alt", potion.name.toString());
+      image.className = "potion-image";
+      listItem.append(image);
+
+      possibleKeys.forEach(key => {
+        let span = document.createElement("span");
+        span.innerHTML = "None";
+        span.className = "potion-" + key.toString();
+        if (potion.hasOwnProperty(key)) {
+          span.innerHTML = potion[key];
+        }
+        listItem.append(span);
+      });
+
+      listItem.addEventListener("click", () => displayPotionDetails(potion));
+
       setTimeout(() => {
-        let listItem = document.createElement("li");
-        listItem.className = "potion";
-        listItem.setAttribute("data-id", potion.id);
-
-        let image = document.createElement("img");
-        image.setAttribute("src", `./images/${potion.id}.png`);
-        image.setAttribute("alt", potion.name.toString());
-        image.className = "potion-image";
-        listItem.append(image);
-
-        possibleKeys.forEach(key => {
-          let span = document.createElement("span");
-          span.innerHTML = "None";
-          span.className = "potion-" + key.toString();
-          if (potion.hasOwnProperty(key)) {
-            span.innerHTML = potion[key];
-          }
-          listItem.append(span);
-        });
-
         document.querySelector(".potions").appendChild(listItem);
       }, index * delay);
     });
   }
+
+  function displayPotionDetails(potion) {
+    let popup = document.getElementById("popup");
+
+    for (var prop in potion) {
+      if (prop == "tags") continue;
+
+      let text = document.createElement("p");
+      text.innerHTML = potion[prop].toString();
+      popup.appendChild(text);
+    }
+
+    document.getElementById("backdrop").style.display = "block";
+    popup.style.display = "block";
+  };
 
   init();
 
